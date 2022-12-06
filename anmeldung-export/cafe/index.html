@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmeldungen Café W18</title>
+    <link rel="stylesheet" href="../../assets/css/mermaid.css?v=202111041520">
+</head>
+<body>
+
+    <div id="wrapper"></div>
+    <script src="../../assets/js/gridjs.umd.js"></script>
+    <script>
+        new gridjs.Grid({
+            fixedHeader: true,
+            style: {
+                table: {
+                'font-size': '12px',
+                'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+                }
+            },
+            columns: ['Was', {name:'Nachname', sort: { enabled: true}},'Vorname', 'weitere Personen', 'Tisch' ],
+            server: {
+                method: 'POST',
+                url: 'https://w18web2.uber.space/cockpit-master/api/forms/export/cafeanmeldung?token=7410582333ed2e6cf13a18025da827',
+                then: data => data.map(anmeldung => [anmeldung.data.Anmeldung, anmeldung.data.Nachname, anmeldung.data.Vorname, anmeldung.data.Nachricht, anmeldung.data.Tisch])
+            }
+            }).render(document.getElementById("wrapper"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/normalize.css?v=202111041520">
+    <link rel="stylesheet" href="../assets/css/milligram.css?v=202111041520">
+    <link rel="stylesheet" href="../assets/css/export_form.css?v=202111041520">
+
+    <title>Anmeldung-Export</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+          <label for="export">Anmeldung-Auswahl</label>
+          <select id="export" onchange="javascript:handleSelect(this)">
+            <option></option>
+            <optgroup label="sonstige Veranstaltungen">
+                <option value="cafe/">Café W18</option>
+                <option value="inoutam/"> In/Out Vormittags</option>
+                <option value="inoutpm/">In/Out Nachmittags</option>
+                <option value="schulung/">Schulung</option>
+
+            </optgroup> 
+          </select>
+        </fieldset>
+      </form>
+      <script type="text/javascript">
+        function handleSelect(elm)
+        {
+        window.location = elm.value;
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Anmeldung erforderlich"
+AuthUserFile /var/www/virtual/cgweb/.htpasswd
+Require user cafe
